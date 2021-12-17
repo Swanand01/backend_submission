@@ -12,14 +12,8 @@ def save_new_videos():
         yt_id = item["id"]["videoId"]
         title = item["snippet"]["title"]
         description = item["snippet"]["description"]
-        thumbnail = item["snippet"]["thumbnails"]["default"]["url"]
+        thumbnail = item["snippet"]["thumbnails"]["high"]["url"]
         pub_date = item["snippet"]["publishedAt"]
-
-        print("Title:", title)
-        print("description:", description)
-        print("pub_date:", pub_date)
-        print("thumbnail:", thumbnail)
-        print("yt_id:", yt_id, "\n")
 
         if not Video.objects.filter(yt_id=yt_id).exists():
             video_obj = Video(title=title,
