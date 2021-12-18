@@ -22,7 +22,9 @@ def dashboard(request):
     videos = Video.objects.all().order_by("-pub_date")
     if request.GET.get("sort_by") == "oldest":
         videos = Video.objects.all().order_by("pub_date")
-
+    if request.GET.get("search"):
+        search_keyword = request.GET.get("search")
+        videos = Video.objects.filter(title__icontains=search_keyword)
     context = {
         "videos": videos
     }
