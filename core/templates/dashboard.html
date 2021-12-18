@@ -16,8 +16,10 @@
 
 <body>
     <div class="container">
+        <a href="{% url 'dashboard' %}?sort_by=oldest">Oldest</a>
+        <a href="{% url 'dashboard' %}?sort_by=newest">Newest</a>
         {% for video in videos %}
-        <div class="card m-3">
+        <div class="card mb-3 mt-3">
             <div class="row">
                 <div class="col-4">
                     <img src="{{video.thumbnail}}" class="img-thumbnail" style="object-fit: cover;">
