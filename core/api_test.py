@@ -9,14 +9,14 @@ import os
 import googleapiclient.discovery
 
 
-def get_videos():
+def get_videos(api_key):
     # Disable OAuthlib's HTTPS verification when running locally.
     # *DO NOT* leave this option enabled in production.
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
     api_service_name = "youtube"
     api_version = "v3"
-    DEVELOPER_KEY = "AIzaSyCBMISH0QZL7xZqGx__gHzpYhFf8-T6XOU"
+    DEVELOPER_KEY = api_key
 
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=DEVELOPER_KEY)
@@ -27,7 +27,6 @@ def get_videos():
         q="cricket",
         type="video"
     )
+
     response = request.execute()
-
     return response
-
