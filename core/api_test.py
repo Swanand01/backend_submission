@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
-
-# Sample Python code for youtube.search.list
-# See instructions for running these code samples locally:
-# https://developers.google.com/explorer-help/guides/code_samples#python
-
 import os
-
 import googleapiclient.discovery
 
 
 def get_videos(api_key):
+    """
+    Fetches videos from YouTube, by calling YouTube Data V3 API.
+
+    args: api_key: YouTube API key.\n
+    returns: response: collection of search results that match the query parameters specified.
+    """
+    
     # Disable OAuthlib's HTTPS verification when running locally.
     # *DO NOT* leave this option enabled in production.
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
@@ -21,6 +22,7 @@ def get_videos(api_key):
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=DEVELOPER_KEY)
 
+    # Specify query parameters
     request = youtube.search().list(
         part="snippet",
         order="date",

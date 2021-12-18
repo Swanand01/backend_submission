@@ -1,9 +1,16 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Video(models.Model):
+    """
+    Database model for a YouTube video.\n
+    Attributes:\n
+    title: Title of the video
+    description: Description of the video
+    thumbnail: URL of the video's thumbnail
+    pub_date: Datetime when the video was published
+    yt_id: Unique ID
+    """
     title = models.TextField(default="")
     description = models.TextField(default="")
     thumbnail = models.TextField(default="")
