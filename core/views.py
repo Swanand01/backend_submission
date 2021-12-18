@@ -22,7 +22,6 @@ def dashboard(request):
     videos = Video.objects.all().order_by("-pub_date")
 
     if request.GET.get("search"):
-        print(request.GET.get("search"))
         keyword = request.GET.get("search")
         videos = Video.objects.filter(
             title__icontains=keyword).order_by("-pub_date")
