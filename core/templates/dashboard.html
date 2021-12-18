@@ -16,14 +16,10 @@
 
 <body>
     <div class="container">
-        <div class="d-flex justify-content-between mt-5 align-items-end">
-            <div>
-                <a href="{% url 'dashboard' %}?sort_by=oldest">Oldest</a>
-                <a href="{% url 'dashboard' %}">Newest</a>
-            </div>
-            <div>
+        <div class="d-flex justify-content-end mt-3 align-items-end">
                 <form action="" method="get" class="d-flex">
-                    <input type="search" name="search" id="search_input" class="form-control mx-2" placeholder="Search.." required>
+                    <input type="search" name="search" id="search_input" class="form-control mx-2"
+                        placeholder="Search.." required>
                     <button type="submit" class="btn btn-primary" id="search_button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-search" viewBox="0 0 16 16">
@@ -32,8 +28,6 @@
                         </svg>
                     </button>
                 </form>
-            </div>
-            
         </div>
         {% for video in videos %}
         <div class="card mb-3 mt-3">
