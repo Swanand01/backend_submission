@@ -81,7 +81,9 @@ python manage.py runserver
     celery -A backend_submission beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
     ```
 
-The project should now be running at localhost://8000
+The project should now be running at localhost:8000.\
+To access the dashboard visit localhost:8000/dashboard\
+To access the API visit localhost:8000/api/videos
 
 ## Tech Stack
 
