@@ -63,19 +63,18 @@ python manage.py runserver
 ```
 8. In a new terminal,
 - Activate the virtual env
-- Go to the backend_submission directory inside the repo
+- Go inside the repo directory
     ```bash
-    cd backend_submission\
-    ```
+    cd externship\
 - Start the celery worker process
     ```bash
     celery -A backend_submission worker --pool=solo -l INFO
     ```
 9. In another terminal,
 - Activate the virtual env
-- Go to the backend_submission directory inside the repo
+- Go inside the repo directory
     ```bash
-    cd backend_submission\
+    cd externship\
     ```
 - Start the celery beat scheduler
     ```bash
