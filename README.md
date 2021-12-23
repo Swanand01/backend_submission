@@ -28,6 +28,8 @@ In case of multiple API keys, provide them as
 api_keys = [key_1, key_2,...]
 ```
 in core\tasks.py
+
+Developed on Windows 7, tested on Windows 7, 10 and Ubuntu 20.04
 ## Deployment
 
 Please follow the following steps:
@@ -44,15 +46,12 @@ py -m venv venv
 venv\Scripts\activate.bat
 ```
 4. Install the necessary dependencies
-- Install Redis
+- Install [Redis](https://redis.io/download)
 - Install python packages:
     ```bash
-    pip install django djangorestframework redis celery django-celery-beat
+     pip install -r requirements.txt
     ```
-    ```bash
-    pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
-    ```
-5. Start Redis server and Redis client
+5. Start Redis server and Redis CLI
 6. Go to the cloned repository
 ```bash
 cd externship\
@@ -69,6 +68,10 @@ python manage.py runserver
 - Start the celery worker process
     ```bash
     celery -A backend_submission worker --pool=solo -l INFO
+    ```
+    - For Linux:
+    ```bash
+        celery -A backend_submission worker -l INFO
     ```
 9. In another terminal,
 - Activate the virtual env
