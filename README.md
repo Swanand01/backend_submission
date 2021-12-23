@@ -37,48 +37,41 @@ Please follow the following steps:
 ```bash
 git clone https://github.com/Swanand01/externship.git
 ```
-2. Create a virtual environment. 
-```bash
-py -m venv venv
-```
-3. Activate the venv
-```bash
-venv\Scripts\activate.bat
-```
-4. Install the necessary dependencies
-- Install [Redis](https://redis.io/download)
-- Install python packages:
-    ```bash
-     pip install -r requirements.txt
-    ```
-5. Start Redis server and Redis CLI
-6. Go to the cloned repository
+2. Go to the cloned repository
 ```bash
 cd externship\
 ```
+3. Create a virtual environment.
+- Windows and Linux instructions [here](https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/)
+```bash
+python -m venv venv
+```
+4. Activate the venv
+- Windows and Linux instructions [here](https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/)
+5. Install the necessary dependencies
+- Install [Redis](https://redis.io/download)
+- Install necessary python packages:
+    ```bash
+     pip install -r requirements.txt
+    ```
+6. Start Redis server and Redis CLI
 7. Run the django server.
 ```bash
 python manage.py runserver
 ```
-8. In a new terminal,
+8. Open a new terminal in the cloned directory,
 - Activate the virtual env
-- Go inside the repo directory
-    ```bash
-    cd externship\
 - Start the celery worker process
+    - Windows: 
     ```bash
     celery -A backend_submission worker --pool=solo -l INFO
     ```
     - For Linux:
     ```bash
-        celery -A backend_submission worker -l INFO
+    celery -A backend_submission worker -l INFO
     ```
-9. In another terminal,
+9. Open another terminal in the same directory,
 - Activate the virtual env
-- Go inside the repo directory
-    ```bash
-    cd externship\
-    ```
 - Start the celery beat scheduler
     ```bash
     celery -A backend_submission beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
