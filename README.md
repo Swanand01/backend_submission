@@ -44,23 +44,23 @@ git clone https://github.com/Swanand01/externship.git
 cd externship\
 ```
 3. Create a virtual environment.
-- Windows and Linux instructions [here](https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/)
+    - Windows and Linux instructions [here](https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/)
 4. Activate the venv
-- Windows and Linux instructions [here](https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/)
+    - Windows and Linux instructions [here](https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/)
 5. Install the necessary dependencies
-- Install [Redis](https://redis.io/download)
-- Install necessary python packages:
-    ```bash
-     pip install -r requirements.txt
-    ```
+    - Install [Redis](https://redis.io/download)
+    - Install necessary python packages:
+        ```bash
+         pip install -r requirements.txt
+        ```
 6. Start Redis server
 7. Migrate changes and run the django server.
-```bash
-python manage.py migrate
-```
-```bash
-python manage.py runserver
-```
+    ```bash
+    python manage.py migrate
+    ```
+    ```bash
+    python manage.py runserver
+    ```
 8. Open a new terminal in the cloned directory,
 - Activate the virtual env
 - Start the celery worker process
