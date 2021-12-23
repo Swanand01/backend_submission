@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from celery.schedules import crontab
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -132,3 +134,11 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIME_ZONE = 'Asia/Kolkata'
+
+
+CELERY_BEAT_SCHEDULE = {
+    "save_new_videos": {
+        "task": "core.tasks.save_new_videos",
+        "schedule": crontab(minute="*/1"),
+    },
+}

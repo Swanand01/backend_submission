@@ -29,6 +29,8 @@ api_keys = [key_1, key_2,...]
 ```
 in core\tasks.py
 
+To change the interval of fetching videos, change it in CELERY_BEAT_SCHEDULE in settings.py
+
 Developed on Windows 7, tested on Windows 7, 10 and Ubuntu 20.04
 ## Deployment
 
@@ -43,9 +45,6 @@ cd externship\
 ```
 3. Create a virtual environment.
 - Windows and Linux instructions [here](https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/)
-```bash
-python -m venv venv
-```
 4. Activate the venv
 - Windows and Linux instructions [here](https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/)
 5. Install the necessary dependencies
@@ -54,8 +53,11 @@ python -m venv venv
     ```bash
      pip install -r requirements.txt
     ```
-6. Start Redis server and Redis CLI
-7. Run the django server.
+6. Start Redis server
+7. Migrate changes and run the django server.
+```bash
+python manage.py migrate
+```
 ```bash
 python manage.py runserver
 ```

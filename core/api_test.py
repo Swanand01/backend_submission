@@ -10,7 +10,7 @@ def get_videos(api_key):
     args: api_key: YouTube API key.\n
     returns: response: collection of search results that match the query parameters specified.
     """
-    
+
     # Disable OAuthlib's HTTPS verification when running locally.
     # *DO NOT* leave this option enabled in production.
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
@@ -27,7 +27,8 @@ def get_videos(api_key):
         part="snippet",
         order="date",
         q="cricket",
-        type="video"
+        type="video",
+        publishedAfter="2020-01-01T00:00:00Z"
     )
 
     response = request.execute()
